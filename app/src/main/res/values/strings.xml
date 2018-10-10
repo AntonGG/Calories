@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Torch</string>
+    <integer name="waterDay">0</integer>
+    <integer name="waterNormaDay">0</integer>
+</resources>
