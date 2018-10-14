@@ -1,5 +1,6 @@
-package myprogi.ml.torch
+package myprogi.ml.calcCalories
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.FrameLayout
@@ -7,7 +8,8 @@ import android.widget.SeekBar
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_profile.*
 
-class ProfileActivity : BaseActivity(3), SeekBar.OnSeekBarChangeListener {
+class ProfileActivity : BaseActivity(3),
+        SeekBar.OnSeekBarChangeListener {
     private val TAG = "ProfileActivity"
 
     private var progressView: TextView? = null
@@ -25,8 +27,31 @@ class ProfileActivity : BaseActivity(3), SeekBar.OnSeekBarChangeListener {
 
         drinkButton.setOnClickListener { showDrinkAdd() }
         addDrinkButton.setOnClickListener { showDrinkAdd() }
+
+        myRation.text = dateNow
+        profile_btn.setOnClickListener {
+            startActivity(Intent(this, MyDataActivity::class.java))
+        }
     }
 
+    //загрузить данные за сегодня
+/*    fun loadTodayProfile(){
+        val dbHandler = DatabaseHandler(this, null, null, 1)
+
+        val date = DateTimeFormatter,
+        val formatter = DateTimeFormatter.ofPattern("yyyy MM dd")
+        val text = date.format(formatter)
+        val parsedDate = LocalDate.parse(text, formatter)
+
+        val profile = dbHandler.find()
+    }*/
+
+    fun drink() {
+        TODO()
+        // R.string.waterDay += seekBarView!!.progress
+    }
+
+    //показать диалог добавления воды
     fun showDrinkAdd() =
             if (adding_product.visibility == FrameLayout.VISIBLE) {
                 adding_product.visibility = FrameLayout.INVISIBLE

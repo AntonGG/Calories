@@ -1,4 +1,4 @@
-package myprogi.ml.torch
+package myprogi.ml.calcCalories
 
 import org.junit.Test
 

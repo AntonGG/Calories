@@ -1,4 +1,4 @@
-package myprogi.ml.torch
+package myprogi.ml.calcCalories
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -22,7 +22,10 @@ abstract class BaseActivity(val navNumber: Int) : AppCompatActivity() {
                 }
             }
             if (nextActivity != null) {
-                startActivity(Intent(this, nextActivity))
+                startActivity(Intent(this, nextActivity).also {
+                    it.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
+                })
+                overridePendingTransition(0,0)
                 true
             } else
                 false

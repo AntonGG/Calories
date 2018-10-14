@@ -1,10 +1,10 @@
-package myprogi.ml.torch
+package myprogi.ml.calcCalories
 
 import android.os.Bundle
 import android.util.Log
 
-class SearchActivity : BaseActivity(1) {
-    private val TAG = "SearchActivity"
+class EatingActivity : BaseActivity(2) {
+    private val TAG = "EatingActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

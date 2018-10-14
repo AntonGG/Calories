@@ -1,5 +1,15 @@
 <resources>
-    <string name="app_name">Torch</string>
-    <integer name="waterDay">0</integer>
-    <integer name="waterNormaDay">0</integer>
+    <string name="app_name">Калории</string>
+
+    <string name="waterNorma">4600</string>
+    <string name="caloriesNorma">3000</string>
+    <string name="fatsNorma">76</string>
+    <string name="proteinsNorma">324</string>
+    <string name="carbsNorma">555</string>
+
+    <string name="waterDay">0</string>
+    <string name="caloriesDay">3000</string>
+    <string name="fatsDay">0</string>
+    <string name="proteinsDay">0</string>
+    <string name="carbsDay">0</string>
 </resources>

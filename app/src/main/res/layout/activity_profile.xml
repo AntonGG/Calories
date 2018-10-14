@@ -48,13 +48,21 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0" />
+                    android:text="@string/caloriesDay" />
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3000 ккал" />
+                <LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/caloriesNorma" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" ккал" />
+                </LinearLayout>
             </TableRow>
 
             <TableRow
@@ -72,13 +80,21 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0" />
+                    android:text="@string/fatsDay" />
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="75 г" />
+                <LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fatsNorma" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" г" />
+                </LinearLayout>
             </TableRow>
 
             <TableRow
@@ -96,13 +112,21 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0" />
+                    android:text="@string/proteinsDay" />
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="200 г" />
+                <LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/proteinsNorma" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" г" />
+                </LinearLayout>
             </TableRow>
 
             <TableRow
@@ -120,13 +144,21 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0" />
+                    android:text="@string/carbsDay" />
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="300 г" />
+                <LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/carbsNorma" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" г" />
+                </LinearLayout>
             </TableRow>
 
             <TableRow
@@ -146,10 +178,19 @@
                     android:text="0" />
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5000 мл" />
+                <LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/waterNorma" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" мл" />
+                </LinearLayout>
+
             </TableRow>
         </TableLayout>
 
@@ -181,8 +222,8 @@
         android:id="@+id/frame2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/frame1"
-        android:stretchColumns="*">
+        android:stretchColumns="*"
+        app:layout_constraintTop_toBottomOf="@id/frame1">
 
         <TableRow
             android:layout_width="wrap_content"
@@ -205,7 +246,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+ Выпить"
-                    android:textColor="#007DD6"/>
+                    android:textColor="#007DD6" />
             </LinearLayout>
 
             <LinearLayout
@@ -224,7 +265,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+ Съесть"
-                    android:textColor="#ff9900"/>
+                    android:textColor="#ff9900" />
             </LinearLayout>
         </TableRow>
     </TableLayout>
@@ -243,7 +284,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|center"
-            android:text="0 мл."
+            android:text="200 мл."
             android:textSize="34dp" />
 
         <SeekBar
@@ -253,7 +294,8 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:max="400"
+            android:max="900"
+            android:progress="200"
             android:thumb="@drawable/ic_drinking" />
 
         <Button
@@ -273,14 +315,24 @@
         app:layout_constraintTop_toBottomOf="@id/adding_product">
 
         <Button
+            android:id="@+id/myRation"
+            style="@style/profile_btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Мой рацион" />
+            android:text="Мой рацион"
+            android:textAllCaps="false" />
 
         <Button
+            style="@style/profile_btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Статистика" />
+            android:text="Статистика"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/profile_btn"
+            style="@style/profile_btn"
+            android:layout_width="match_parent"
+            android:text="Мои данные"
+            android:textAllCaps="false" />
     </LinearLayout>
 
     <include layout="@layout/bottom_navigation_view" />

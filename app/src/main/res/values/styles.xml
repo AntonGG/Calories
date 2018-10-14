@@ -1,5 +1,4 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -16,5 +15,11 @@
 
     <style name="RedAccent" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorAccent">#F00</item>
+    </style>
+
+    <style name="profile_btn" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:layout_height">38dp</item>
     </style>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="myprogi.ml.torch">
+    package="myprogi.ml.calcCalories">
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-feature android:name="android.hardware.camera" />
@@ -12,18 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
-        <activity android:name=".FavoriteActivity">
+        <activity android:name="myprogi.ml.calcCalories.FavoriteActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AboutActivity"/>
-        <activity android:name=".EatingActivity"/>
-        <activity android:name=".ProfileActivity"/>
-        <activity android:name=".SearchActivity"/>
-        <activity android:name=".HomeActivity"/>
+        <activity android:name="myprogi.ml.calcCalories.AboutActivity"/>
+        <activity android:name="myprogi.ml.calcCalories.EatingActivity"/>
+        <activity android:name="myprogi.ml.calcCalories.ProfileActivity"/>
+        <activity android:name="myprogi.ml.calcCalories.SearchActivity"/>
+        <activity android:name="myprogi.ml.calcCalories.MyDataActivity"/>
     </application>
 
 </manifest>

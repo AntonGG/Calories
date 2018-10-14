@@ -1,4 +1,4 @@
-package myprogi.ml.torch
+package myprogi.ml.calcCalories
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
