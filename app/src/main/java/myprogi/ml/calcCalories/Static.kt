@@ -5,3 +5,5 @@ import java.util.*
 
  val dateNow
     get() = SimpleDateFormat("dd.MM.yyyy").format(Date())
+
+val dbVersion = 16

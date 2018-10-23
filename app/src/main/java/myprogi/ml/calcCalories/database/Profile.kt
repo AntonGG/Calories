@@ -1,7 +1,6 @@
 package myprogi.ml.calcCalories.database
 
 class Profile {
-
     var id: Int = 0
     var dateTime: String? = null
     var sex: String = "HUMAN"
@@ -44,15 +43,5 @@ class Profile {
         this.zbu_fats = zbu_fats
         this.zbu_proteins = zbu_proteins
         this.zbu_carbs = zbu_carbs
-    }
-    constructor(id:Int, dateTime: String, sex: String) {
-        this.id = id
-        this.dateTime = dateTime
-        this.sex = sex
-    }
-    constructor(dateTime: String, sex: String) {
-        this.id = id
-        this.dateTime = dateTime
-        this.sex = sex
     }
 }

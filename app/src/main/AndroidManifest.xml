@@ -23,7 +23,8 @@
         <activity android:name="myprogi.ml.calcCalories.EatingActivity"/>
         <activity android:name="myprogi.ml.calcCalories.ProfileActivity"/>
         <activity android:name="myprogi.ml.calcCalories.SearchActivity"/>
-        <activity android:name="myprogi.ml.calcCalories.MyDataActivity"/>
+        <activity android:name="myprogi.ml.calcCalories.MyDataActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
     </application>
 
 </manifest>
