@@ -14,7 +14,7 @@ class MyDataActivity : BaseActivity(1) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mydata)
         Log.d(TAG, "onCreate")
-        DatabaseHandler(this, null, null, dbVersion).findAll().last().let {
+        DatabaseHandler(this, null, null, dbVersion).findAll().lastOrNull()?.let {
             if (it.sex == "Мужчина") {
                 radioMan.isChecked = true
             } else {

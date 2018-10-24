@@ -54,6 +54,7 @@
                 <LinearLayout>
 
                     <TextView
+                        android:id="@+id/caloriesNorma"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/caloriesNorma" />
@@ -86,6 +87,7 @@
                 <LinearLayout>
 
                     <TextView
+                        android:id="@+id/fatsNorma"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/fatsNorma" />
@@ -118,6 +120,7 @@
                 <LinearLayout>
 
                     <TextView
+                        android:id="@+id/proteinsNorma"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/proteinsNorma" />
@@ -150,6 +153,7 @@
                 <LinearLayout>
 
                     <TextView
+                        android:id="@+id/carbsNorma"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/carbsNorma" />
