@@ -7,7 +7,6 @@ import android.widget.FrameLayout
 import android.widget.SeekBar
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_profile.*
-import myprogi.ml.calcCalories.database.DatabaseHandler
 
 class ProfileActivity : BaseActivity(3),
         SeekBar.OnSeekBarChangeListener {
@@ -38,31 +37,31 @@ class ProfileActivity : BaseActivity(3),
     }
 
     fun calcCalories() {
-        DatabaseHandler(this, null, null, dbVersion).findAll().last().let {
-            val bmr = if (it.sex == "Мужчина") {
-                88.36 + (13.4 * it.weight) + (4.8 * it.growth) - (5.7 * it.years)
-            } else {
-                447.6 + (9.2 * it.weight) + (3.1 * it.growth) - (4.3 * it.years)
-            }
+        /*  DatabaseHandler(this, null, null, dbVersion).findAll().last().let {
+              val bmr = if (it.sex == "Мужчина") {
+                  88.36 + (13.4 * it.weight) + (4.8 * it.growth) - (5.7 * it.years)
+              } else {
+                  447.6 + (9.2 * it.weight) + (3.1 * it.growth) - (4.3 * it.years)
+              }
 
-            val activLevel = when (it.activity) {
-                "low" -> 1.2
-                "light" -> 1.375
-                "middle" -> 1.55
-                "hard" -> 1.725
-                else -> 0.0
-            }
+              val activLevel = when (it.activity) {
+                  "low" -> 1.2
+                  "light" -> 1.375
+                  "middle" -> 1.55
+                  "hard" -> 1.725
+                  else -> 0.0
+              }
 
-            val normCalories = bmr * activLevel
-            val normProteins = normCalories * 0.15 / 4
-            val normFats = normCalories * 0.30 / 9
-            val normCarbs = normCalories * 0.55 / 4
+              val normCalories = bmr * activLevel
+              val normProteins = normCalories * 0.15 / 4
+              val normFats = normCalories * 0.30 / 9
+              val normCarbs = normCalories * 0.55 / 4
 
-            caloriesNorma.text = normCalories.toInt().toString()
-            proteinsNorma.text = normProteins.toInt().toString()
-            fatsNorma.text = normFats.toInt().toString()
-            carbsNorma.text = normCarbs.toInt().toString()
-        }
+              caloriesNorma.text = normCalories.toInt().toString()
+              proteinsNorma.text = normProteins.toInt().toString()
+              fatsNorma.text = normFats.toInt().toString()
+              carbsNorma.text = normCarbs.toInt().toString()
+          }*/
     }
 
     //загрузить данные за сегодня

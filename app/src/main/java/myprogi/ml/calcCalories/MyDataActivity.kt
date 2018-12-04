@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_mydata.*
-import myprogi.ml.calcCalories.database.DatabaseHandler
-import myprogi.ml.calcCalories.database.Profile
 
 class MyDataActivity : BaseActivity(1) {
     private val TAG = "MyDataActivity"
@@ -14,33 +12,33 @@ class MyDataActivity : BaseActivity(1) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mydata)
         Log.d(TAG, "onCreate")
-        DatabaseHandler(this, null, null, dbVersion).findAll().lastOrNull()?.let {
-            if (it.sex == "Мужчина") {
-                radioMan.isChecked = true
-            } else {
-                radioWoman.isChecked = true
-            }
+        /* DatabaseHandler(this, null, null, dbVersion).findAll().lastOrNull()?.let {
+             if (it.sex == "Мужчина") {
+                 radioMan.isChecked = true
+             } else {
+                 radioWoman.isChecked = true
+             }
 
-            edit_age.setText(it.years.toString())
-            edit_growth.setText(it.growth.toString())
-            edit_weight.setText(it.weight.toString())
-            when (it.activity) {
-                "low" -> low_activ.isChecked = true
-                "light" -> light_activ.isChecked = true
-                "middle" -> middle_activ.isChecked = true
-                "hard" -> hard_activ.isChecked = true
-            }
+             edit_age.setText(it.years.toString())
+             edit_growth.setText(it.growth.toString())
+             edit_weight.setText(it.weight.toString())
+             when (it.activity) {
+                 "low" -> low_activ.isChecked = true
+                 "light" -> light_activ.isChecked = true
+                 "middle" -> middle_activ.isChecked = true
+                 "hard" -> hard_activ.isChecked = true
+             }
 
-            when (it.zbu_carbs) {
-                50 -> standart_zbu.isChecked = true
-                40 -> pohudenie_zbu.isChecked = true
-                30 -> sushka_zbu.isChecked = true
-            }
-        }
+             when (it.zbu_carbs) {
+                 50 -> standart_zbu.isChecked = true
+                 40 -> pohudenie_zbu.isChecked = true
+                 30 -> sushka_zbu.isChecked = true
+             }
+         }*/
         rootView.clearFocus()
     }
 
-    fun saveData(view: View) {
+/*    fun saveData(view: View) {
         val dbHandler = DatabaseHandler(this, null, null, dbVersion)
         val sex = (if (radioMan.isChecked) radioMan.text else radioWoman.text).toString()
         val years = edit_age.text.toString().toInt()
@@ -79,5 +77,5 @@ class MyDataActivity : BaseActivity(1) {
 
         dbHandler.add(profile)
         this.onBackPressed()
-    }
+    }*/
 }
