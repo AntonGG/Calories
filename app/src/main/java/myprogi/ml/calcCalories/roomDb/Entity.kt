@@ -5,7 +5,7 @@ import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "profiles")
 data class Profile(
-        @PrimaryKey
+        @PrimaryKey(autoGenerate = true)
         val id: Int,
         val date: String,
         val name: String,

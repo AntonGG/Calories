@@ -2,16 +2,26 @@ package myprogi.ml.calcCalories
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import io.reactivex.Observable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_mydata.*
+import myprogi.ml.calcCalories.roomDb.Profile
+import myprogi.ml.calcCalories.roomDb.ProfileDao
+import javax.inject.Inject
 
 class MyDataActivity : BaseActivity(1) {
     private val TAG = "MyDataActivity"
+
+    @Inject
+    lateinit var database: ProfileDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mydata)
         Log.d(TAG, "onCreate")
+        App.getAppComponent().inject(this)
+        buttonSave.setOnClickListener { Observable.just(saveData()).subscribeOn(Schedulers.io()) }
+
         /* DatabaseHandler(this, null, null, dbVersion).findAll().lastOrNull()?.let {
              if (it.sex == "Мужчина") {
                  radioMan.isChecked = true
@@ -38,8 +48,7 @@ class MyDataActivity : BaseActivity(1) {
         rootView.clearFocus()
     }
 
-/*    fun saveData(view: View) {
-        val dbHandler = DatabaseHandler(this, null, null, dbVersion)
+    private fun saveData() {
         val sex = (if (radioMan.isChecked) radioMan.text else radioWoman.text).toString()
         val years = edit_age.text.toString().toInt()
         val growth = edit_growth.text.toString().toInt()
@@ -72,10 +81,10 @@ class MyDataActivity : BaseActivity(1) {
             }
         }
 
-        val profile = Profile(dateNow, sex, years, growth,
+        val profile = Profile(0, dateNow, edit_name.text.toString(), sex, years, growth,
                 weight, activity, zbu_fats, zbu_proteins, zbu_carbs)
 
-        dbHandler.add(profile)
+        database.insert(profile)
         this.onBackPressed()
-    }*/
+    }
 }

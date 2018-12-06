@@ -18,25 +18,43 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_height="100dp"
                 android:background="@drawable/data_background" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|center"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="8dp"
                 android:text="Ваши данные"
                 android:textColor="#fff"
                 android:textSize="40dp" />
         </FrameLayout>
 
         <LinearLayout
-            android:id="@+id/linear1"
+            android:id="@+id/linear0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             app:layout_constraintTop_toBottomOf="@id/shapka">
+
+            <TextView
+                android:text="Ваше имя:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/edit_name"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/linear0">
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -218,8 +236,9 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/buttonSave"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="38dp"
             android:layout_marginBottom="10dp"
             android:onClick="saveData"
             android:text="Сохранить"
