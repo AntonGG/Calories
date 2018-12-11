@@ -91,6 +91,7 @@
 
             <EditText
                 android:id="@+id/edit_age"
+                android:inputType="number"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content" />
 
@@ -114,6 +115,7 @@
 
             <EditText
                 android:id="@+id/edit_growth"
+                android:inputType="number"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content" />
 
@@ -137,6 +139,7 @@
 
             <EditText
                 android:id="@+id/edit_weight"
+                android:inputType="number"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content" />
 

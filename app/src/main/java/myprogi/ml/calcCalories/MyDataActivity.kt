@@ -1,5 +1,6 @@
 package myprogi.ml.calcCalories
 
+import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.util.Log
 import io.reactivex.Observable
@@ -20,39 +21,51 @@ class MyDataActivity : BaseActivity(1) {
         setContentView(R.layout.activity_mydata)
         Log.d(TAG, "onCreate")
         App.getAppComponent().inject(this)
-        buttonSave.setOnClickListener { Observable.just(saveData()).subscribeOn(Schedulers.io()) }
 
-        /* DatabaseHandler(this, null, null, dbVersion).findAll().lastOrNull()?.let {
-             if (it.sex == "Мужчина") {
-                 radioMan.isChecked = true
-             } else {
-                 radioWoman.isChecked = true
-             }
+        buttonSave.setOnClickListener {
+            saveData()
+        }
 
-             edit_age.setText(it.years.toString())
-             edit_growth.setText(it.growth.toString())
-             edit_weight.setText(it.weight.toString())
-             when (it.activity) {
-                 "low" -> low_activ.isChecked = true
-                 "light" -> light_activ.isChecked = true
-                 "middle" -> middle_activ.isChecked = true
-                 "hard" -> hard_activ.isChecked = true
-             }
+        loadData()
 
-             when (it.zbu_carbs) {
-                 50 -> standart_zbu.isChecked = true
-                 40 -> pohudenie_zbu.isChecked = true
-                 30 -> sushka_zbu.isChecked = true
-             }
-         }*/
         rootView.clearFocus()
+    }
+
+    private fun loadData() {
+        database.getAll().observe(this, Observer {
+            it?.lastOrNull()?.let {
+                edit_name.setText(it.name)
+
+                if (it.sex == "Мужчина") {
+                    radioMan.isChecked = true
+                } else {
+                    radioWoman.isChecked = true
+                }
+
+                edit_age.setText(it.years.toString())
+                edit_growth.setText(it.growth.toString())
+                edit_weight.setText(it.weight.toString())
+                when (it.activity) {
+                    "low" -> low_activ.isChecked = true
+                    "light" -> light_activ.isChecked = true
+                    "middle" -> middle_activ.isChecked = true
+                    "hard" -> hard_activ.isChecked = true
+                }
+
+                when (it.zbu_carbs) {
+                    50 -> standart_zbu.isChecked = true
+                    40 -> pohudenie_zbu.isChecked = true
+                    30 -> sushka_zbu.isChecked = true
+                }
+            }
+        })
     }
 
     private fun saveData() {
         val sex = (if (radioMan.isChecked) radioMan.text else radioWoman.text).toString()
         val years = edit_age.text.toString().toInt()
         val growth = edit_growth.text.toString().toInt()
-        val weight = edit_weight.text.toString().toInt()
+        val weight = edit_weight.text.toString().toFloat()
         val activity: String = when {
             low_activ.isChecked -> "low"
             light_activ.isChecked -> "light"
@@ -84,7 +97,10 @@ class MyDataActivity : BaseActivity(1) {
         val profile = Profile(0, dateNow, edit_name.text.toString(), sex, years, growth,
                 weight, activity, zbu_fats, zbu_proteins, zbu_carbs)
 
-        database.insert(profile)
+        Observable.fromCallable {
+            database.insert(profile)
+        }.subscribeOn(Schedulers.io()).subscribe()
+
         this.onBackPressed()
     }
 }

@@ -7,12 +7,16 @@ import android.arch.persistence.room.Query
 
 @Dao
 interface ProfileDao {
+
+    @Query("SELECT * FROM profiles")
+    fun getAll(): LiveData<List<Profile>>
+
     @Query("SELECT * FROM profiles WHERE id = :id")
     fun getProfileById(id: String): LiveData<Profile>
 
     @Query("SELECT * FROM profiles WHERE date = :date")
-    fun getProfileByDate(date: String):LiveData<Profile>
+    fun getProfileByDate(date: String): LiveData<Profile>
 
     @Insert
-    fun insert(profile: Profile)
+    fun insert(profile: Profile): Long
 }

@@ -12,7 +12,7 @@ data class Profile(
         val sex: String,
         val years: Int,
         val growth: Int,
-        val weight: Int,
+        val weight: Float,
         val activity: String,
         val zbu_fats: Int,
         val zbu_proteins: Int,

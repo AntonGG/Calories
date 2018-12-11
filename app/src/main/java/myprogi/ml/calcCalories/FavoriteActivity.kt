@@ -1,5 +1,6 @@
 package myprogi.ml.calcCalories
 
+import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -19,12 +20,13 @@ class FavoriteActivity : BaseActivity(0) {
         setContentView(R.layout.activity_main)
         Log.d(TAG, "onCreate")
         setupBottomNavigation()
-        /*database.getProfileByDate(dateNow).observe(this, Observer<Profile> {
-            it?.let { Log. }
-        })*/
 
-        if (database.getProfileByDate(dateNow).value == null) {
-            startActivity(Intent(this, MyDataActivity::class.java))
-        }
+        //раз в день будет открываться окно с данными для их редактирования
+        database.getProfileByDate(dateNow).observe(this, Observer {
+            if (it == null) {
+                startActivity(Intent(this, MyDataActivity::class.java))
+            }
+        })
+
     }
 }

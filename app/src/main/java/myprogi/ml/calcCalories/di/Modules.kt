@@ -30,6 +30,7 @@ class DatabaseModule {
     fun dbProvider(appContext: Context): ProfileDao {
         return Room.databaseBuilder(appContext,
                 ProfileDatabase::class.java, "Calories.db")
+                .fallbackToDestructiveMigration()
                 .build().dao()
     }
 }
